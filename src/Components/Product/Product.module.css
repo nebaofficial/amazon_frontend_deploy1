@@ -53,3 +53,38 @@ object-fit: contain;
     margin: 0 auto;
     
 }
+.flex{
+    display: flex;
+    height: auto;
+    box-shadow: none;
+    gap: 50px;
+    width: 100%;
+
+}
+.flex h3{
+    padding: 20px 0px;
+}
+.flex .button{
+    display: block;
+    position: static;
+    width: 150px;
+    margin-right: 40px;
+}
+.flex img{
+    width: 300px !important;
+    height: 400px;
+}
+@media screen and (max-width:768px){
+    .flex{
+        flex-direction: column;
+        align-items: center;
+    }
+    .flex img{
+        width: 80% !important;
+        height: auto;
+    }
+    .flex .button{
+        margin: 20px 0;
+    }
+    
+}
