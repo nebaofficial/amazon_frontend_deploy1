@@ -1,0 +1,55 @@
+.product_card{
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    position: relative;
+
+}
+.product_card:hover .button{
+    display: block;
+}
+.product_card img{
+    padding: 10px;
+    width: 100%;
+height: 200px;
+object-fit: contain;
+}
+.button{
+    display: none;
+    padding: 5px 10px ;
+    font-weight: 700;
+    border: none;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin:10px 0;
+    border-radius:30px;
+
+
+}
+.button:hover{
+    background-color: var(--primary-shade);
+}
+.rating{
+    display: flex;
+    align-items: center;
+    padding: 10px 6px;
+
+}
+.product_List{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px ,1fr));
+    max-width: 1450px;
+    margin: 100px auto 100px auto;
+    gap: 50;
+    justify-items: center;
+}
+.product_List section{
+    margin: 0 auto;
+    
+}
