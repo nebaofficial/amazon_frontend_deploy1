@@ -31,14 +31,10 @@ const [isLoading, setIsLoading] = useState(false);
   <Loader />
 ) : product ? (
   <ProductCard
-    image={product.image}
-    title={product.title}
-    id={product.id}
-    rating={product.rating}
-    price={product.price}
-  renderDescription={true}
-    description={product.description}
+    product={product}
+    renderDescription={true}
     flex={true}
+    renderAdd={true}
   />
 ) : null}
       

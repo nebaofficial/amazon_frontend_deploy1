@@ -124,12 +124,13 @@
 }
 .cart_count{
     position: absolute;
-    top: -6px;
-    left: 22px;
+    top: -10px;
+    left: 15px;
     color: orange;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     background-color: transparent;
+    padding: 2px;
 }
 
 /* lower container */

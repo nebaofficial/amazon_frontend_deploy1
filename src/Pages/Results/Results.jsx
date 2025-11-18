@@ -39,11 +39,8 @@ setIsLoading(true);
     {results.map((product) => (
       <ProductCard
         key={product.id}
-        image={product.image}
-        title={product.title}
-        id={product.id}
-        rating={product.rating}
-        price={product.price}
+        product={product}
+        renderAdd={true}
       />
     ))}
   </div>

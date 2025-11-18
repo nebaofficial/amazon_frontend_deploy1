@@ -1,12 +1,16 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import classes from './header.module.css';
 import { Link } from 'react-router-dom';
 import LowerContainer from './LowerConatainer'
+import { DataContext } from '../DataProvider/DataProvider.jsx';
 
 function Header() {
+  const [{cart}, dispatch] =useContext(DataContext);
+  console.log(dispatch);
+  console.log(cart);
   return (
     <>
       <section>
@@ -61,7 +65,9 @@ function Header() {
 
             <Link to="/cart" className={`${classes.cart} ${classes.link_block}`}>
               <ShoppingCartIcon fontSize="small" />
-              <span className={classes.cart_count}>0</span>
+              <span className={classes.cart_count}>{cart?.reduce((amount,item)=>{
+                return item.quantity + amount
+              },0)}</span>
             </Link>
           </div>
         </div>

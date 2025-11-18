@@ -26,7 +26,7 @@ function ProductList() {
     {isLoading?(<Loader />):(<section className={classes.product_List}>
     {
 products.map((singelProduct)=>{
-     return <ProductCard {...singelProduct} key={singelProduct.id} />
+     return <ProductCard product={{...singelProduct}} key={singelProduct.id} renderAdd={true} />
 }
 )
 }
