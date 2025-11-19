@@ -13,6 +13,9 @@ function Header() {
   console.log(cart);
   return (
     <>
+    <section className={classes.fixed}>
+
+  
       <section>
         <div className={classes.header_container}>
           <div className={classes.logo_container}>
@@ -72,7 +75,8 @@ function Header() {
           </div>
         </div>
       </section>
-      <LowerContainer />
+      <LowerContainer />  
+      </section>
     </>
   );
 }
