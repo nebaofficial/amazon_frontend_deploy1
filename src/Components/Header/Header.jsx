@@ -9,6 +9,7 @@ import { DataContext } from '../DataProvider/DataProvider.jsx';
 
 function Header() {
   const [{cart}, dispatch] =useContext(DataContext);
+  
   console.log(dispatch);
   console.log(cart);
   return (

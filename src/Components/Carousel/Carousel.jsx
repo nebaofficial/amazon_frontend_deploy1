@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { img } from './img/data';
 import classes from './carousel.module.css'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-function CarasoulEffect() {
+function CarouselEffect() {
   return (
     <div>
       <Carousel
@@ -21,4 +21,4 @@ function CarasoulEffect() {
   );
 }
 
-export default CarasoulEffect
+export default CarouselEffect

@@ -6,7 +6,7 @@ import Orders from './Pages/Orders/Orders.jsx';
 import Payment from './Pages/Payment/Payment.jsx';
 import Cart from './Pages/Cart/Cart.jsx';
 import Results from './Pages/Results/Results.jsx';
-import ProductDeatil from './Components/ProdyctDEtail/ProductDeatil.jsx';
+import ProductDetail from './Components/ProductDetail/ProductDetail.jsx';
 
 function AppRouter() {
   return (
@@ -16,7 +16,7 @@ function AppRouter() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/catagory/:catagoryName" element={<Results />} />
-        <Route path="/product/:productId" element={<ProductDeatil />} />
+        <Route path="/product/:productId" element={<ProductDetail />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>

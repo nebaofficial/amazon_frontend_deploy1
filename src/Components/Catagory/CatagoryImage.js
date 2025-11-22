@@ -18,9 +18,9 @@ export const CategoryImage = [
       "https://images.pexels.com/photos/3755706/pexels-photo-3755706.jpeg?auto=compress&cs=tinysrgb&w=800",
   },
   {
-    title: "Women's clothing",
-    apiCategory: "women's clothing",
-    imageLink:
-      "https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&w=800",
-  },
+  title: "Women's Clothing",
+  apiCategory: "women's clothing",
+  imageLink:
+    "https://images.pexels.com/photos/3769747/pexels-photo-3769747.jpeg?auto=compress&cs=tinysrgb&w=800",
+}
 ];
