@@ -1,6 +1,7 @@
 import {Type} from './action.type'
 export const initialState = {
   cart: [],
+  user:null
 
 }
 export const reducer = (state, action) => {
@@ -46,7 +47,8 @@ export const reducer = (state, action) => {
       return {
         ...state,
         user: action.user
-      }
+      };
+    
     default:
       return state;
   }

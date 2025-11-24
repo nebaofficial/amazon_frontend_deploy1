@@ -1,19 +1,20 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from './Pages/Landing/Landing.jsx';
-import Auth from './Pages/Auth/SignUp.jsx';
+import Auth from './Pages/Auth/Auths.jsx';
 import Orders from './Pages/Orders/Orders.jsx';
 import Payment from './Pages/Payment/Payment.jsx';
 import Cart from './Pages/Cart/Cart.jsx';
 import Results from './Pages/Results/Results.jsx';
 import ProductDetail from './Components/ProductDetail/ProductDetail.jsx';
+import Auths from './Pages/Auth/Auths.jsx';
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/Auths" element={<Auths />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/catagory/:catagoryName" element={<Results />} />
         <Route path="/product/:productId" element={<ProductDetail />} />

@@ -57,7 +57,7 @@ function Header() {
               </select>
             </div>
 
-            <Link to="/signup" className={classes.link_block}>
+            <Link to="/Auths" className={classes.link_block}>
               <p>Sign in</p>
               <span>Account & Lists</span>
             </Link>
