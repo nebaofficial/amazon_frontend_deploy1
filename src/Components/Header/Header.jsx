@@ -6,12 +6,14 @@ import classes from './header.module.css';
 import { Link } from 'react-router-dom';
 import LowerContainer from './LowerConatainer'
 import { DataContext } from '../DataProvider/DataProvider.jsx';
+import { auth } from '../../Utility/firbase';
 
 function Header() {
-  const [{cart}, dispatch] =useContext(DataContext);
+  const [{ user, cart }, dispatch] = useContext(DataContext);
   
   console.log(dispatch);
   console.log(cart);
+  console.log(user);
   return (
     <>
     <section className={classes.fixed}>
@@ -42,7 +44,7 @@ function Header() {
             </select>
             <input type="text" placeholder="Search" aria-label="search input" />
             <button type="button" className={classes.search_button} aria-label="search">
-              <SearchIcon fontSize="small" />
+              <SearchIcon fontSize="small" size={38} />
             </button>
           </div>
 
@@ -57,9 +59,29 @@ function Header() {
               </select>
             </div>
 
-            <Link to="/Auths" className={classes.link_block}>
-              <p>Sign in</p>
-              <span>Account & Lists</span>
+            <Link to= { !user && "/Auths"} className={classes.link_block}>
+            <div>    {
+              user ? (
+              <>
+
+
+              <p> Hello {user?.email?.split('@')[0]}
+                </p><span onClick={()=>auth.signOut()}>sign out</span> </>)
+                 : 
+              (
+                <>
+
+                 <p> Hello, Sign in</p>
+                  <span>Account & Lists</span>
+              </>
+               
+              
+              )}
+              
+       
+      </div>
+          
+              
             </Link>
 
             <Link to="/orders" className={classes.link_block}>
