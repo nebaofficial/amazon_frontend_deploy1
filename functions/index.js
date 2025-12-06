@@ -28,7 +28,10 @@ app.post("/payment/create", async (req, res) => {
                 amount: total,
                 currency: "usd"
             });
-            return res.status(201).json(paymentIntent);
+            return res.status(201).json({
+                clientSecret: paymentIntent.client_secret,
+                message: "Payment intent created successfully"  
+            });
         } catch (err) {
             console.error(err);
             return res.status(500).json({ message: "Failed to create payment intent", error: String(err) });

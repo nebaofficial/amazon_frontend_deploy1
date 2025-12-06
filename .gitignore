@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+echo ".vite/" >> .gitignore
+git add .gitignore
+git commit -m "Ignore Vite cache (.vite)"
