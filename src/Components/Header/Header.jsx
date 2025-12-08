@@ -10,6 +10,10 @@ import { auth } from '../../Utility/firbase';
 
 function Header() {
   const [{ user, cart }, dispatch] = useContext(DataContext);
+  const totalItems = cart?.reduce((amount,item)=>{
+                return item.quantity + amount
+              },0);
+
   
   console.log(dispatch);
   console.log(cart);
@@ -91,9 +95,8 @@ function Header() {
 
             <Link to="/cart" className={`${classes.cart} ${classes.link_block}`}>
               <ShoppingCartIcon fontSize="small" />
-              <span className={classes.cart_count}>{cart?.reduce((amount,item)=>{
-                return item.quantity + amount
-              },0)}</span>
+             <span className={classes.cart_count}>{totalItems}</span>
+
             </Link>
           </div>
         </div>
