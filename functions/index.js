@@ -20,7 +20,7 @@ app.get("/", (_req, res) => {
 });
 
 app.post("/payment/create", async (req, res) => {
-    const total = Number(req.query.total) || 0; // Use query parameter instead of req.body.total
+    const total = parseInt(req.query.total) || 0; // Use query parameter instead of req.body.total
     console.log("Payment Request Received for this amount >>> ", total);
     if (total > 0) {
         try {

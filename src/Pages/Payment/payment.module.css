@@ -23,6 +23,12 @@
 .flex  div{
     height: auto;
 }
+@media screen and (max-width: 768px){
+
+    .flex{
+        flex-direction: column;
+    }
+}
 .payment_description{
     max-width: 350px;
     width: 100%;
@@ -52,4 +58,13 @@ width: 100%;
 }
 .card_element button:hover{
     background-color: #ddb347;
+}
+.loading{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+   color: rgb(52, 52, 52);
+
+
 }

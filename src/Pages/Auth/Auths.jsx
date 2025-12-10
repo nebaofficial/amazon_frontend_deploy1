@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext  } from 'react'
 import classes from './signup.module.css'
-import { Link ,useNavigate } from 'react-router-dom'
+import { Link ,useNavigate,useLocation } from 'react-router-dom'
 // import Layout from '../../Components/Layout/Layout.jsx'
 import { auth } from '../../Utility/firbase';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth'
@@ -9,6 +9,7 @@ import { Type } from '../../Utility/action.type';
 import { ClipLoader } from 'react-spinners'
 
 function Auths() {
+  const Navlocation=useLocation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -31,7 +32,8 @@ function Auths() {
            type: Type.SET_USER,
             user: userInfo.user
            });
-           navigate('/');
+ navigate(Navlocation.state?.redirectTo || '/' );
+
       } catch (err) {
         setError(err.message);
       } finally {
@@ -45,7 +47,7 @@ function Auths() {
           type: Type.SET_USER, 
           user: userInfo.user 
         });
-        navigate('/');
+        navigate(Navlocation.state?.redirectTo || '/' );
       } catch (err) {
         setError(err.message);
       } finally {
@@ -60,6 +62,18 @@ function Auths() {
       <div className={classes.form_container}>
         <form onSubmit={authHandler}>
           <h1>sign in</h1>
+       {
+        Navlocation?.state?.msg && <small 
+        style={{ 
+          color: "red",
+           padding: "10px",
+           textAlign:"center",
+        fontWeight:"bold"
+           }
+      }>
+        {Navlocation?.state?.msg}
+        </small>
+       }
           <label htmlFor="email">Email</label>
           <input
             value={email}
