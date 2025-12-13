@@ -1,13 +1,14 @@
+import React from 'react'
 import {useContext, useEffect } from 'react'
 import AppRouter from './Router.jsx'
 import './App.css'
-import { DataContext } from '../../Amazone-clone/src/Components/DataProvider/DataProvider.jsx';
+import { DataContext } from './Components/DataProvider/DataProvider.jsx';
 // import Header from './Components/Header/Header.jsx'
 // import CarasoulEffect from './Components/Carosul/Carasoul.jsx'
 // import Catagory from './Components/Catagory/Catagory.jsx'
 // import ProductList from './Components/Product/ProductList.jsx'
-import { Type } from '../../Amazone-clone/src/Utility/action.type.js';
-import { auth } from '../../Amazone-clone/src/Utility/firbase.js';
+import { Type } from './Utility/action.type.js';
+import { auth } from './Utility/firbase.js';
 function App() {
   const [{user},dispatch]=useContext(DataContext)
   useEffect(()=>{

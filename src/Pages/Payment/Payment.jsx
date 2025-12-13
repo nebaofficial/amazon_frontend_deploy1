@@ -10,6 +10,7 @@ import {instance} from '../../Api/axios';
 import { ClipLoader } from 'react-spinners'
 import {db} from '../../Utility/firbase'
 import { useNavigate } from 'react-router-dom';
+// import Type from '../../Utility/action.type';
   import {
      collection, 
   doc, 
@@ -19,6 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Payment() {
 const [{user, cart}]=useContext(DataContext);
+const [,dispatch]=useContext(DataContext);
 console.log(user)
 
    const totalItems = cart?.reduce((amount,item)=>{
@@ -31,6 +33,7 @@ console.log(user)
   const elements = useElements();
   const [error,setError]=useState()
   const [processing,setProcessing]=useState(false)
+  const [cardError, setCardError] = useState(null);
   const navigate=useNavigate();
 
 const handleChange = async (event) => {
@@ -42,6 +45,7 @@ event?.error?.message ? setError(event.error.message) : setError()
 const handlePayment= async(e)=>{
     e.preventDefault();
     setProcessing(true);
+    setCardError(null);
 
 
     try{ 
@@ -81,29 +85,23 @@ const orderRef = doc(
         created: serverTimestamp()
     });
 
-navigate('/orders', {state:{msg:"order successfull"}});
+    //emety in the cart
+    dispatch({
+      type:"EMPETY_CART",
+      cart:[]
+
+    });
  setProcessing(false);
+navigate( '/orders', {state:{msg:"order successfull"}});
+
     }
    
     catch(err){
-        console.log(err);
+        console.error("Payment failed:", err);
+        setCardError(err.message);
         setProcessing(false);
     }
    
-
-
-
-
-
-   
-
-
-
-
-
-
-   
-
 
 }
 
@@ -144,6 +142,7 @@ cart?.map((item)=><ProductCard product={item} flex={true}/>)
             <div className={classes.card_element}>
               <form onSubmit={handlePayment}>
                 {error && <small style={{color:"red"}}>{error}</small>}
+                {cardError && <small style={{color:"red"}}>{cardError}</small>}
                 <CardElement onChange={handleChange}/>
 
                 {/* {price} */}

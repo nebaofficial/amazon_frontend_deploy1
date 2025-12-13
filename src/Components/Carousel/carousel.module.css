@@ -14,3 +14,12 @@
         );
 
     }
+   /* Inside carousel.module.css */
+
+.carousel_container {
+    /* Set a height that is appropriate for your images */
+    height: 400px; 
+    /* Optionally, set the max-width to control overall size */
+    max-width: 1500px;
+    margin: 0 auto; /* Centers the carousel */
+}

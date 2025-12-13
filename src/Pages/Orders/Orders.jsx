@@ -52,6 +52,13 @@ return unsubscribe;
              Your orders
              </h2>
              <div>
+              {
+                orders?.length ===0 && <p style={{padding:"12px"}}>
+                You have no orders yet.
+                </p>
+              }
+             </div>
+             <div>
                 {/* Display user's orders here */}
 
              </div>
@@ -63,14 +70,14 @@ return unsubscribe;
                             <hr />
                             <p> order ID:{eachOrder?.id}</p>
                           {
-                         eachOrder?.cart?.map((item) => {
+                         eachOrder?.cart?.map((order) => {
 
                                 return(
                                     <ProductCard
 
                                     flex={true}
-                                    product={item}
-                                    key={item.id}
+                                    product={order}
+                                    key={order.id}
                                     />
                                 )
                             })

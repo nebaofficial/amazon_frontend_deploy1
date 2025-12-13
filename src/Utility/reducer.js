@@ -43,6 +43,11 @@ export const reducer = (state, action) => {
         cart: newCart
       }
     }
+    case Type.EMPETY_CART:
+      return {
+        ...state,
+        cart: []
+      };
     case Type.SET_USER:
       return {
         ...state,
