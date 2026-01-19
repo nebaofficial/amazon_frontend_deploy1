@@ -23,12 +23,12 @@ const [{user, cart}]=useContext(DataContext);
 const [,dispatch]=useContext(DataContext);
 console.log(user)
 
-   const totalItems = cart?.reduce((amount,item)=>{
+  const totalItems = cart?.reduce((amount,item)=>{
                 return item.quantity + amount
-              },0);
-              const total = cart.reduce((amount, item) => {
+              },0) || 0;
+  const total = cart?.reduce((amount, item) => {
     return item.price * item.quantity + amount;
-  }, 0);
+  }, 0) || 0;
   const stripe = useStripe();
   const elements = useElements();
   const [error,setError]=useState()
@@ -47,6 +47,11 @@ const handlePayment= async(e)=>{
     setProcessing(true);
     setCardError(null);
 
+    if (!stripe || !elements) {
+      setCardError('Payment system not ready. Please try again later.');
+      setProcessing(false);
+      return;
+    }
 
     try{ 
       // 1, backend payment api call
@@ -120,7 +125,7 @@ navigate( '/orders', {state:{msg:"order successfull"}});
         <div className={classes.flex}>
           <h3> Delivery Address</h3>
           <div>
-            <div>{user.email}</div>
+            <div>{user?.email}</div>
             <div>123 Main St</div>
             <div>Addis Ababa, Ethiopia</div>
           </div>
@@ -131,7 +136,9 @@ navigate( '/orders', {state:{msg:"order successfull"}});
           <h3>Review items and delivery</h3>
           <div>
 {
-cart?.map((item)=><ProductCard product={item} flex={true}/>)
+cart?.map((item, idx)=>(
+  <ProductCard key={item.id || idx} product={item} flex={true} />
+))
 }
           </div>
         </div>
